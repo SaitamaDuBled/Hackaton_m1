@@ -1,0 +1,63 @@
+mat-toolbar {
+  padding: 0;
+  background-color: #b94e48; /* Couleur brique */
+  color: white; /* Couleur du texte */
+  height: auto; /* Ajuste automatiquement la hauteur au contenu */
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column; /* Empile le contenu verticalement */
+  justify-content: space-between; /* Positionne le menu en bas */
+  width: 100%;
+}
+
+.header-head {
+  display: flex;
+}
+
+.top-container {
+  justify-content: space-between; /* Sépare le titre et l'image */
+  align-items: center;
+}
+
+.text-container {
+  flex: 1; /* Cette section prendra toute la place disponible à gauche */
+  align-content: center;
+  text-align: center;
+}
+
+.site-title {
+  font-size: 24px; /* Taille du titre */
+  font-weight: bold; /* Gras pour le titre */
+  color: white; /* Assurez-vous que le titre contraste bien */
+  position: static; /* Active le déplacement avec top/left */
+  margin: 1rem;
+  text-decoration: none;
+}
+
+.image-container {
+  flex: 1; /* Prend tout l'espace disponible à droite */
+  background-image: url("/img/toulouse.jpg"); /* Image de fond */
+  background-size: cover; /* Couvre toute la surface */
+  background-position: center; /* Centre l'image */
+  height: 100px; /* Hauteur fixe de l'image */
+}
+
+.menu-tabs {
+  display: flex;
+  border-top: 2px solid #c45c57; /* Ligne de séparation subtile */
+  a {
+    text-align: center;
+    width: 50%;
+    color: white; /* Couleur du texte des boutons */
+    font-size: 16px; /* Taille du texte */
+    text-transform: none; /* Empêche le texte en majuscules */
+    border-bottom: 2px solid transparent; /* Ligne invisible par défaut */
+    padding: 10px 10px; /* Ajoute un peu d'espace interne */
+    text-decoration: none;
+  }
+  a:hover {
+    background-color: #c45c57;
+  }
+}

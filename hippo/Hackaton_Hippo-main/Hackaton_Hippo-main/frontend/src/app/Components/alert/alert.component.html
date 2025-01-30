@@ -1,0 +1,13 @@
+<div class="card flex justify-center toast-container">
+    <p-toast 
+    position="top-right"
+    [breakpoints]="{ '500px': { width: '80%'} }"
+    [showTransformOptions]="'translateY(100%)'"
+    [showTransitionOptions]="'500ms'"
+    [hideTransitionOptions]="'500ms'"
+    [showTransformOptions]="'translateX(100%)'"
+    [life]="500000"
+    ></p-toast>
+</div>
+
+    <p-button type="button" pRipple (click)="show()" label="Warn" severity="warn" />

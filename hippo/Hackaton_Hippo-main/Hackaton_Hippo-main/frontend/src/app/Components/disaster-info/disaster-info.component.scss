@@ -1,0 +1,18 @@
+.disastersInfo-container {
+  display: flex; /* Utilisation de Flexbox */
+  flex-wrap: wrap; /* Permet aux cartes de passer à la ligne si nécessaire */
+  justify-content: center; /* Centre les cartes horizontalement */
+  align-items: center; /* (Optionnel) Centre verticalement les cartes */
+  gap: 4rem; /* Espacement entre les cartes */
+  padding: 20px; /* Espacement autour des cartes */
+}
+
+.disaster-card {
+  padding: 1rem 2rem 1rem 2rem;
+  background-color: #f9f9f9; /* Couleur de fond des cartes */
+  border: 1px solid #ccc; /* Bordure légère autour des cartes */
+  border-radius: 8px; /* Bords arrondis */
+  overflow: hidden; /* Empêche les débordements */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour effet de carte */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animation au survol */
+}

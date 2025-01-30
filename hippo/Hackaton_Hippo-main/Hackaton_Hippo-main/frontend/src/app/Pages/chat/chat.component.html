@@ -1,0 +1,68 @@
+<mat-card class="mat-card">
+  <div>
+    <div class="title">
+      <h2>{{ "Discussion zone " + zone }}</h2>
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+  <br />
+  <div class="chat" #chatContainer>
+    <div class="scroll">
+      <div class="messages">
+        @for (message of messages; track message) {
+        <div class="message">
+          <div
+            [class]="
+              message.user_pseudo === myUsername
+                ? 'my-username'
+                : 'not-my-username'
+            "
+          >
+            {{ message.user_pseudo }}
+          </div>
+          <div
+            [class]="
+              message.user_pseudo === myUsername
+                ? 'my-message'
+                : 'not-my-message'
+            "
+          >
+            <div
+              [class]="
+                message.user_pseudo === myUsername
+                  ? 'my-content'
+                  : 'not-my-content'
+              "
+            >
+              {{ message.message }}
+            </div>
+            <div class="timestamp">
+              {{ message.date_time | date : "shortTime" }}
+            </div>
+          </div>
+        </div>
+
+        }
+      </div>
+    </div>
+
+    <div class="new-message">
+      <mat-form-field class="field" appearance="outline">
+        <mat-label>Votre message</mat-label>
+        <input
+          matInput
+          [(ngModel)]="newMessage"
+          (keydown)="onKeyDown($event)"
+        />
+      </mat-form-field>
+      <button
+        class="send-button"
+        mat-button
+        color="primary"
+        (click)="sendMessage()"
+      >
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-card>

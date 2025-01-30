@@ -1,0 +1,86 @@
+.activities-container {
+  display: flex; /* Utilisation de Flexbox */
+  flex-wrap: wrap; /* Permet aux cartes de passer à la ligne si nécessaire */
+  justify-content: center; /* Centre les cartes horizontalement */
+  align-items: center; /* (Optionnel) Centre verticalement les cartes */
+  gap: 20px; /* Espacement entre les cartes */
+  padding: 20px; /* Espacement autour des cartes */
+  min-height: 40vh; /* Hauteur minimale pour le centrage vertical */
+}
+
+.activity-card {
+  width: 300px; /* Largeur fixe des cartes */
+  height: 310px; /* Hauteur fixe des cartes */
+  background-color: #f9f9f9; /* Couleur de fond des cartes */
+  border: 1px solid #ccc; /* Bordure légère autour des cartes */
+  border-radius: 8px; /* Bords arrondis */
+  overflow: hidden; /* Empêche les débordements */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour effet de carte */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animation au survol */
+}
+
+.activity-card:hover {
+  transform: translateY(-5px); /* Légère élévation au survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Augmentation de l'ombre au survol */
+}
+
+.activity-header {
+  background-color: #B94E48; /* Couleur marron pour l'en-tête */
+  color: #fff; /* Texte blanc */
+  padding: 10px; /* Espacement à l'intérieur de l'en-tête */
+  text-align: center; /* Texte centré */
+  font-weight: bold; /* Texte en gras */
+}
+
+.activity-info {
+  padding: 10px; /* Espacement interne pour le contenu */
+  text-align: left; /* Texte aligné à gauche */
+}
+
+.activity-info p {
+  margin: 5px 0; /* Marges verticales entre les paragraphes */
+  color: #555; /* Couleur grise pour le texte */
+  font-size: 14px; /* Taille de police des informations */
+}
+
+/* Styles pour les pastilles de disponibilité */
+.status-dot {
+  display: inline-block; /* Affichage en ligne pour la pastille */
+  width: 10px; /* Diamètre de la pastille */
+  height: 10px; /* Diamètre de la pastille */
+  border-radius: 50%; /* Forme circulaire */
+  margin-right: 1px; /* Espace entre la pastille et le texte */
+}
+
+.status-dot.available {
+  background-color: green; /* Couleur verte pour disponible */
+}
+
+.status-dot.unavailable {
+  background-color: red; /* Couleur rouge pour non disponible */
+}
+.activity-image {
+  display: flex; /* Centre l'image si elle est plus petite */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  height: 100px; /* Hauteur fixe pour le conteneur de l'image */
+  width: 100%; /* Largeur maximale pour le conteneur */
+  overflow: hidden; /* Coupe l'image si elle dépasse */
+  background-color: #f5f5f5; /* Optionnel : Fond gris clair */
+  border-radius: 5px; /* Coins arrondis */
+}
+
+.activity-image img {
+  width: 100%; /* L'image prend toute la largeur du conteneur */
+  height: 100%; /* L'image prend toute la hauteur du conteneur */
+  object-fit: cover; /* L'image est recadrée pour remplir le conteneur */
+}
+
+
+.activity-info .material-icons,
+.activity-info fa-icon {
+  font-size: 20px; /* Ajuste la taille des icônes */
+  vertical-align: middle; /* Aligne les icônes avec le texte */
+  margin-right: 8px; /* Espace entre l'icône et le texte */
+  color: #555; /* Couleur des icônes */
+}
