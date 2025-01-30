@@ -1,0 +1,26 @@
+FROM mariadb:10.4
+
+# Pour se connecter en tant que super admin
+ENV MYSQL_ROOT_PASSWORD=AdminHackathon
+# Accès uniquement à la base "hackathon"
+ENV MYSQL_PASSWORD=Hackathon
+
+ENV MYSQL_DATABASE=hackathon
+ENV MYSQL_USER=admin
+
+
+# Copie du script SQL d'initialisation
+COPY ./init.sql /docker-entrypoint-initdb.d/
+
+# Exposition du port MySQL
+EXPOSE 3306
+
+# Volume pour persister les données
+VOLUME ["/var/lib/mysql"]
+
+# Configuration du fuseau horaire
+ENV TZ=Europe/Paris
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# Commande par défaut
+CMD ["mysqld"]

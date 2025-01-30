@@ -1,0 +1,30 @@
+= Hackathon 2025
+
+== Deployment with Docker
+
+To deploy the application using Docker images and containers, follow these steps:
+
+. Install https://www.docker.com/[Docker] on your device
+
+. Build the MariaDB and PHP custom images by running the following commands in a terminal from the project root:
++
+[source, bash]
+----
+docker build -t mariadb-hackathon -f dockerfile-db .
+docker build -t php-hackathon -f dockerfile-php .
+----
+
+. Deploy a `hackathon` container with the following command:
++
+[source, bash]
+----
+docker-compose -p hackathon up
+----
+
+Three sub-containers will be deployed:
+
+* `php`: PHP container hosting the application, accessible at port 80
+* `mariadb`: MariaDB container hosting a database (port 3306)
+* `phpmyadmin`: PHPMyAdmin container hosting an interface to manage the database, accessible at port 8899
+
+You can manage your containers and images using https://www.docker.com/products/docker-desktop/[Docker Desktop].

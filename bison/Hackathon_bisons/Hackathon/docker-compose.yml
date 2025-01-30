@@ -1,0 +1,37 @@
+version: '3.3'
+services:
+
+  # PHP container
+  app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: php
+    depends_on:
+      - db
+    image: php-hackathon:latest # Custom php image
+    ports:
+      - "80:80"
+
+  # MariaDB container
+  db:
+    container_name: mariadb
+    image: mariadb-hackathon:latest # Custom mariadb image
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: AdminHackathon
+      MYSQL_PASSWORD: Hackathon
+      MYSQL_DATABASE: hackathon
+      MYSQL_USER: admin
+    ports:
+      - "3306:3306"
+
+  # PHPMyAdmin container
+  pma:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
+      UPLOAD_LIMIT: 20M
+    ports:
+      - "8899:80"

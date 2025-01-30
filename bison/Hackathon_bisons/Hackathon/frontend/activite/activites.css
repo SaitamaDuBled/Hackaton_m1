@@ -1,0 +1,103 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+
+  header {
+    text-align: center;
+    background-color: #4CAF50;
+    padding: 1rem;
+    color: white;
+  }
+
+  .filter-buttons {
+    margin: 1rem 0;
+  }
+
+  .filter-buttons button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #4CAF50;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .filter-buttons button:hover {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+
+  #activites-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .activity-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 1rem;
+    margin: 1rem;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 4px solid #3498db;
+
+  }
+  p{
+    padding: 2px;
+  }
+
+  .activity-card h2 {
+    margin-top: 0;
+  }
+
+  .activity-card p {
+    margin: 5px 0;
+  }
+
+  .activity-card button {
+    margin: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  .activity-card .inscrire {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .activity-card .desinscrire {
+    background-color: #f44336;
+    color: white;
+  }
+
+  .toggle-inscription {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .toggle-inscription.inscrit {
+    background-color: #f44336;
+  }
+
+  .toggle-inscription:hover {
+    opacity: 0.9;
+  }

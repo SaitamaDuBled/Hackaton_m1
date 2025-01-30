@@ -1,0 +1,26 @@
+# Utiliser une image PHP officielle
+FROM php:8.2-cli
+
+# Installer Node.js et npm
+RUN apt-get update && apt-get install -y \
+    nodejs \
+    npm \
+    && rm -rf /var/lib/apt/lists/*
+
+# Installer nodemon globalement
+RUN npm install -g nodemon
+
+# Enable mysqli
+RUN docker-php-ext-install mysqli
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Copier les fichiers du projet
+COPY . .
+
+# Exposer le port 8000
+EXPOSE 80
+
+# Commande pour lancer nodemon avec PHP
+CMD ["nodemon", "-e", "php,html,css,js", "-x", "php -S 0.0.0.0:80 router.php"]

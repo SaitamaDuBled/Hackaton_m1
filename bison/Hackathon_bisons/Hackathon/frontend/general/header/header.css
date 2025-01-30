@@ -1,0 +1,126 @@
+nav .container div a{
+    color: black;
+    text-decoration: none;
+}
+nav .container div a:hover{
+    color: black;
+    text-decoration: underline;
+}
+
+#alert-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.8);
+    z-index: 1000;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 2s infinite;
+}
+.hidden {
+    display: none;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+#alert-popup-content {
+    display: hidden;
+    background-color: white;
+    color: black;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    border: 3px solid red;
+    position: relative;
+}
+#alert-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.alert-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.alert-icons i {
+    font-size: 2em;
+    margin: 0 10px;
+    color: red;
+}
+.preventive-message {
+    background-color: #ffdddd;
+    border-left: 6px solid red;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: left;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+.flash-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(45deg, #333, #555);
+    color: white;
+    overflow: hidden;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    z-index: 999;
+}
+.flash-container.active {
+    opacity: 1;
+    visibility: visible;
+    max-height: 100px;
+}
+.flash-content {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 12px 15px;
+}
+.flash-content.scrolling {
+    animation: scroll-left 15s linear infinite;
+}
+@keyframes scroll-left {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+.breaking {
+    background-color: #ff4136;
+    color: white;
+    padding: 5px 10px;
+    margin-right: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.flash-text {
+    color: white;
+    font-size: 1.1em;
+}
+

@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Effet CRT global */
+@keyframes flicker {
+    0% { opacity: 0.98; }
+    5% { opacity: 0.95; }
+    10% { opacity: 0.9; }
+    15% { opacity: 0.85; }
+    20% { opacity: 0.95; }
+    25% { opacity: 0.94; }
+    30% { opacity: 0.98; }
+    35% { opacity: 0.93; }
+    40% { opacity: 0.99; }
+    45% { opacity: 0.97; }
+    50% { opacity: 0.94; }
+}
+
+body {
+    margin: 0;
+    background: #000;
+    font-family: "Press Start 2P", cursive;
+    color: #fff;
+    overflow-x: hidden;
+    background-image:
+            linear-gradient(0deg, transparent 50%, rgba(32, 128, 32, .2) 51%),
+            linear-gradient(90deg, rgba(0,255,255,0.1), rgba(255,0,255,0.1));
+    background-size: 100% 4px, 100% 100%;
+}
+
+.cyber-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+            repeating-linear-gradient(90deg, rgba(0,255,255,0.1) 0px, rgba(0,255,255,0.1) 1px, transparent 1px, transparent 20px),
+            repeating-linear-gradient(0deg, rgba(0,255,255,0.1) 0px, rgba(0,255,255,0.1) 1px, transparent 1px, transparent 20px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.title {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 20px 0;
+    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow:
+            0 0 10px rgba(255,0,255,0.5),
+            0 0 20px rgba(0,255,255,0.5);
+    position: relative;
+    animation: cyber-pulse 2s infinite;
+}
+
+@keyframes cyber-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.info-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.info-card {
+    margin: 25px 0;
+    padding: 20px;
+    border: 2px solid;
+    position: relative;
+    clip-path: polygon(
+            0% 20px, 20px 0%,
+            calc(100% - 20px) 0%, 100% 20px,
+            100% calc(100% - 20px), calc(100% - 20px) 100%,
+            20px 100%, 0% calc(100% - 20px)
+    );
+}
+
+/* Niveau 1 - Faible danger */
+.danger-1 {
+    background: linear-gradient(135deg, rgba(0,32,0,0.9), rgba(0,64,0,0.9));
+    box-shadow:
+            0 0 20px rgba(0,255,0,0.2),
+            inset 0 0 30px rgba(0,255,0,0.2);
+    border-color: #00ff00;
+}
+
+.danger-1::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(45deg,
+    rgba(0,255,0,0.1),
+    rgba(0,255,0,0.05),
+    rgba(0,255,0,0.1)
+    );
+    pointer-events: none;
+}
+
+/* Niveau 2 - Danger moyen */
+.danger-2 {
+    background: linear-gradient(135deg, rgba(32,32,0,0.9), rgba(64,64,0,0.9));
+    box-shadow:
+            0 0 20px rgba(255,255,0,0.2),
+            inset 0 0 30px rgba(255,255,0,0.2);
+    border-color: #ffff00;
+}
+
+.danger-2::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(45deg,
+    rgba(255,255,0,0.1),
+    rgba(255,255,0,0.05),
+    rgba(255,255,0,0.1)
+    );
+    pointer-events: none;
+}
+
+/* Niveau 3 - Danger élevé */
+.danger-3 {
+    background: linear-gradient(135deg, rgba(32,16,0,0.9), rgba(64,32,0,0.9));
+    box-shadow:
+            0 0 20px rgba(255,128,0,0.3),
+            inset 0 0 30px rgba(255,128,0,0.2);
+    border-color: #ff8800;
+}
+
+.danger-3::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(45deg,
+    rgba(255,128,0,0.15),
+    rgba(255,128,0,0.05),
+    rgba(255,128,0,0.15)
+    );
+    pointer-events: none;
+}
+
+/* Niveau 4 - Danger critique */
+.danger-4 {
+    background: linear-gradient(135deg, rgba(32,0,0,0.9), rgba(64,0,0,0.9));
+    box-shadow:
+            0 0 25px rgba(255,0,0,0.3),
+            inset 0 0 35px rgba(255,0,0,0.2);
+    border-color: #ff0000;
+}
+
+.danger-4::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(45deg,
+    rgba(255,0,0,0.15),
+    rgba(255,0,0,0.05),
+    rgba(255,0,0,0.15)
+    );
+    pointer-events: none;
+}
+
+/* Niveau 5 - Danger apocalyptique */
+.danger-5 {
+    background: linear-gradient(135deg, rgba(48,0,0,0.9), rgba(96,0,0,0.9));
+    box-shadow:
+            0 0 30px rgba(255,0,0,0.4),
+            inset 0 0 50px rgba(255,0,0,0.3);
+    border-color: #ff0000;
+    animation: danger-pulse 1s infinite;
+}
+
+.danger-5::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(45deg,
+    rgba(255,0,0,0.2),
+    rgba(255,0,0,0.1),
+    rgba(255,0,0,0.2)
+    );
+    pointer-events: none;
+    animation: neon-flicker 2s infinite;
+}
+
+/* Effets d'animation */
+@keyframes danger-pulse {
+    0%, 100% {
+        background: linear-gradient(135deg, rgba(48,0,0,0.9), rgba(96,0,0,0.9));
+        box-shadow:
+                0 0 30px rgba(255,0,0,0.4),
+                inset 0 0 50px rgba(255,0,0,0.3);
+    }
+    50% {
+        background: linear-gradient(135deg, rgba(64,0,0,0.9), rgba(128,0,0,0.9));
+        box-shadow:
+                0 0 40px rgba(255,0,0,0.6),
+                inset 0 0 60px rgba(255,0,0,0.4);
+    }
+}
+
+@keyframes neon-flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+    25%, 75% { opacity: 0.9; }
+}
+
+/* Bordures animées avec effet néon */
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: -2px; right: -2px; bottom: -2px; left: -2px;
+    background: linear-gradient(45deg,
+    var(--neon-primary),
+    var(--neon-secondary),
+    var(--neon-primary)
+    );
+    z-index: -1;
+    clip-path: inherit;
+    animation: border-flow 3s linear infinite;
+}
+
+.danger-1 { --neon-primary: #00ff00; --neon-secondary: #00aa00; }
+.danger-2 { --neon-primary: #ffff00; --neon-secondary: #aaaa00; }
+.danger-3 { --neon-primary: #ff8800; --neon-secondary: #aa5500; }
+.danger-4 { --neon-primary: #ff0000; --neon-secondary: #aa0000; }
+.danger-5 {
+    --neon-primary: #ff0000;
+    --neon-secondary: #660000;
+    animation: border-flow 2s linear infinite, danger-glow 1s infinite;
+}
+
+@keyframes border-flow {
+    0% { background-position: 0 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes danger-glow {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.5); }
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(0,255,255,0.5);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin: 0;
+    font-size: 1.2em;
+    text-shadow:
+            0 0 5px var(--neon-primary),
+            0 0 10px var(--neon-secondary),
+            0 0 15px var(--neon-primary);
+}
+
+.zone-badge {
+    background: linear-gradient(45deg, #000, #333);
+    color: #fff;
+    padding: 8px 15px;
+    border: 2px solid #ff00ff;
+    position: relative;
+    clip-path: polygon(10px 0, 100% 0, 100% 70%, calc(100% - 10px) 100%, 0 100%, 0 30%);
+}
+
+.info-details {
+    background: rgba(0,0,0,0.7);
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid rgba(0,255,255,0.3);
+    font-family: "Courier New", monospace;
+    position: relative;
+}
+
+.info-details::after {
+    content: '▒▒▒';
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: rgba(0,255,255,0.5);
+}
+
+.marquee {
+    background: linear-gradient(90deg, #000, #111);
+    color: #0f0;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-family: "Courier New", monospace;
+    border-top: 2px solid #00ff00;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.marquee span {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    text-transform: uppercase;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Effet de ligne de scan */
+.info-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+    transparent,
+    var(--neon-primary),
+    transparent
+    );
+    animation: scan-line 2s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes scan-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(2000%); }
+}
+
+p {
+    line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 0 2px rgba(0,255,255,0.5);
+}
